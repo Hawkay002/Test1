@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Countdown 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Dancing+Script:wght@600&family=Rye&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper-cream: #f4f1e8;
+            --deep-red: #c9302c;
+            --soft-pink: #e8b0b0;
+            --text-brown: #5a4a42;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--paper-cream);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+            font-family: 'Comfortaa', sans-serif;
+            color: var(--text-brown);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 20px;
+            position: relative;
+            text-align: center;
+        }
+
+        .stamp-mark {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 70px;
+            height: 70px;
+            border: 3px double var(--deep-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-red);
+            font-weight: bold;
+            font-size: 0.8rem;
+            transform: rotate(-15deg);
+            opacity: 0.8;
+        }
+
+        .post-mark-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        .heart-stamp {
+            width: 50px;
+            height: 60px;
+            border: 3px dotted var(--deep-red);
+            background-color: var(--soft-pink);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--deep-red);
+            margin-bottom: 5px;
+        }
+        .wavy-lines {
+            width: 80px;
+            height: 30px;
+            background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, var(--deep-red) 5px, var(--deep-red) 7px);
+            opacity: 0.6;
+        }
+
+        h1.main-title {
+            font-family: 'Rye', cursive;
+            color: var(--deep-red);
+            font-size: 3rem;
+            margin-bottom: 0px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p.subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: var(--deep-red);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+
+        .countdown-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2x2 Grid */
+            gap: 20px;
+            justify-content: center;
+            margin-top: 10px;
+            padding: 40px;
+            border: 3px dotted var(--deep-red);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .countdown-container::before, .countdown-container::after {
+            content: '♥';
+            position: absolute;
+            font-size: 2rem;
+            color: var(--deep-red);
+        }
+        .countdown-container::before { top: -25px; left: -10px; transform: rotate(-20deg); }
+        .countdown-container::after { bottom: -25px; right: -10px; transform: rotate(20deg); }
+
+        .time-box {
+            background-color: var(--paper-cream);
+            border: 3px solid var(--deep-red);
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 0px rgba(201, 48, 44, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        /* --- USER VALUES APPLIED HERE --- */
+        
+        .time-box:nth-child(1){
+            border-radius: 50% 50% 50% 5px;
+            transform: rotate(270deg);
+        }
+        /* Counter-rotate text for Box 1 (-270deg) */
+        .time-box:nth-child(1) .inner { transform: rotate(-270deg); }
+
+        .time-box:nth-child(2) {
+             border-radius: 50% 50% 5px 50%; 
+             transform: rotate(90deg);
+        }
+        /* Counter-rotate text for Box 2 (-90deg) */
+        .time-box:nth-child(2) .inner { transform: rotate(-90deg); }
+
+        .time-box:nth-child(3){
+             border-radius: 50% 50% 50% 5px;
+             transform: rotate(180deg);
+        }
+        /* Counter-rotate text for Box 3 (-180deg) */
+        .time-box:nth-child(3) .inner { transform: rotate(-180deg); }
+        
+        .time-box:nth-child(4) {
+             border-radius: 50% 50% 50% 5px;
+             transform: rotate(-270deg);
+        }
+        /* Counter-rotate text for Box 4 (270deg) */
+        .time-box:nth-child(4) .inner { transform: rotate(270deg); }
+
+
+        /* Inner wrapper to handle text alignment inside the rotated bubble */
+        .inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .time-box:hover {
+            transform: scale(1.05) !important; /* Removed rotate reset to keep shape */
+        }
+
+        .time-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--deep-red);
+            line-height: 1;
+        }
+
+        .time-label {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.1rem;
+            color: var(--text-brown);
+        }
+
+        footer {
+            background-color: var(--deep-red);
+            color: var(--paper-cream);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Comfortaa', sans-serif;
+        }
+
+        .footer-brand { font-size: 1.5rem; font-weight: bold; }
+        .footer-links, .footer-copy { font-size: 0.9rem; }
+
+        @media (max-width: 768px) {
+            h1.main-title { font-size: 1.5rem; }
+           
+            .time-box { width: 85px; height: 85px; }
+            .time-value { font-size: 1.6rem; }
+            footer { flex-direction: column; gap: 10px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="stamp-mark">SPECIAL DELIVERY<br>14/02</div>
+        <div class="post-mark-right">
+            <div class="heart-stamp">♥</div>
+            <div class="wavy-lines"></div>
+        </div>
+        <h1 class="main-title">Post Card for Everyone</h1>
+        <p class="subtitle" style="margin-bottom: 0px !important; ">Counting down the miles & minutes!</p>
+    </header>
+
+    <main>
+        <h2 style="color: var(--deep-red); font-family: 'Rye'; margin-bottom: 10px; justify-content: center !important;  text-align: center !important; margin-top: 0px !important;">An exciting new experience awaits everyone!</h2>
+        <p style="margin-top:0px !important; margin-bottom: 10px !important; ">Waiting patiently for...</p>
+        
+        <div class="countdown-container">
+            <div class="time-box">
+                <div class="inner">
+                    <span class="time-value" id="days">00</span>
+                    <span class="time-label">Days</span>
+                </div>
+            </div>
+            <div class="time-box">
+                <div class="inner">
+                    <span class="time-value" id="hours">00</span>
+                    <span class="time-label">Hours</span>
+                </div>
+            </div>
+            <div class="time-box">
+                <div class="inner">
+                    <span class="time-value" id="minutes">00</span>
+                    <span class="time-label">Mins</span>
+                </div>
+            </div>
+            <div class="time-box">
+                <div class="inner">
+                    <span class="time-value" id="seconds">00</span>
+                    <span class="time-label">Secs</span>
+                </div>
+            </div>
+        </div>
+
+        <p style="color: var(--deep-red); font-family: 'Rye'; margin-top: 40px; letter-spacing: 2px; font-size: 15px; margin-bottom: 0px !important; margin-top: 10px !important; ">This</p>  <h2 style="color: var(--deep-red); font-family: 'Rye'; letter-spacing: 2px; margin-top: 5px !important;">VALENTINE'S DAY</h2>
+        <p style="font-family: 'Dancing Script', cursive; font-size: 1.2rem; margin-top: 0px !important; margin-bottom: 5px !important;">(Almost!)</p>
+    </main>
+
+    <footer>
+        <div class="footer-brand">Cupid x Us</div>
+        <div class="footer-links">cupidxus.vercel.app</div>
+        <div class="footer-copy">©2026 Shovith Debnath</div>
+    </footer>
+
+    <script>
+        const countDownDate = new Date("Feb 14, 2026 00:00:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown-container").innerHTML = "<h2 style='color: var(--deep-red);'>It's Today! Happy Valentine's Day!</h2>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
