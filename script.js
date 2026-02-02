@@ -595,7 +595,7 @@ function displayResult() {
         'SDR': 'Sheep',
         'SPA': 'Orange Cat',
         'SPR': 'Chihuahua',
-        'WGA': 'Bird',
+        'WGA': 'Pigeon',
         'WGR': 'Deer',
         'WDA': 'Snow Leopard',
         'WDR': 'Hedgehog',
@@ -676,7 +676,7 @@ function handleChoice(type, type2, type3, weight, id, nextIndex) {
             if (currentMessageIndex == 0 || currentMessageIndex == 2 || currentMessageIndex >=3 ) {
                 const header = document.getElementById("header");
                 header.textContent = 'Unknown';
-                header.style.color = 'var(--6-color)';
+                header.style.color = '#f4f1e8';
                 header.style.backgroundColor = 'var(--2-color)';
                 const phoneScreen = document.getElementById("phone-screen");
                 phoneScreen.style.backgroundColor = '#fff';
@@ -685,7 +685,7 @@ function handleChoice(type, type2, type3, weight, id, nextIndex) {
             if (currentMessageIndex >= 6) {
                 const header = document.getElementById("header");
                 header.textContent = 'Cupid';
-                header.style.color = 'var(--6-color)';
+                header.style.color = '#f4f1e8';
             }
 
             if (currentMessageIndex < dialogue.length) {
