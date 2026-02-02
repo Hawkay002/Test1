@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Cupid×Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Dancing+Script:wght@600&family=Rye&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --paper-cream: #f4f1e8;
+            --deep-red: #c9302c;
+            --soft-pink: #e8b0b0;
+            --text-brown: #5a4a42;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--paper-cream);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+            font-family: 'Comfortaa', sans-serif;
+            color: var(--text-brown);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            padding: 40px 20px 20px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Rye', cursive;
+            color: var(--deep-red);
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .a2 {
+            text-decoration: none;
+            color: var(--deep-red);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .a2:hover {
+            transform: scale(1.1);
+            text-shadow: 2px 2px 0px rgba(201, 48, 44, 0.2);
+        }
+
+        .start-page {
+            width: 90%;
+            max-width: 500px;
+            height: 70vh;
+            background: rgba(255, 255, 255, 0.5);
+            border: 3px dotted var(--deep-red);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+        }
+
+        /* Decorative Postcard Elements */
+        .start-page::before, .start-page::after {
+            content: '♥';
+            position: absolute;
+            font-size: 2rem;
+            color: var(--deep-red);
+            z-index: 10;
+        }
+        .start-page::before { top: 10px; left: 15px; transform: rotate(-20deg); }
+        .start-page::after { bottom: 10px; right: 15px; transform: rotate(20deg); }
+
+        .container {
+            width: 100%;
+            overflow-y: auto;
+            padding-right: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--deep-red) transparent;
+        }
+
+        .container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .container::-webkit-scrollbar-thumb {
+            background-color: var(--deep-red);
+            border-radius: 10px;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transform: rotate(calc(-2deg + Math.random() * 4deg));
+            transition: transform 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: rotate(0deg) scale(1.05);
+            z-index: 5;
+        }
+
+        footer {
+            width: 100%;
+            background-color: var(--deep-red);
+            color: var(--paper-cream);
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            margin-top: auto;
+        }
+
+        footer p2 {
+            display: block;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+
+        footer a {
+            font-size: 0.9rem;
+            text-decoration: none;
+            color: var(--paper-cream);
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        footer a:hover {
+            opacity: 0.7;
+        }
+
+        /* Falling Icons Style */
+        .icon {
+            position: fixed;
+            font-size: 30px;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1000;
+            animation: fall 3s ease-in-out forwards;
+        }
+
+        .heart { color: var(--deep-red); }
+        .star { color: var(--soft-pink); }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-50px) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .start-page { height: 60vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>
+            <div class="a2" onclick="triggerIconShower(event)">
+               Cupid × Mail Box
+            </div>
+        </h1>
+        <p style="font-family: 'Dancing Script', cursive; font-size: 1.5rem; color: var(--deep-red); margin-top: 10px;">
+            A collection of moments and art
+        </p>
+    </header>
+
+    <div class="start-page" id="start-page">
+        <div class="container">
+            <div class="image-gallery">
+                <img src="IMG/1.png" alt="Raccoon">
+                <img src="IMG/2.png" alt="Black Cat">
+                <img src="IMG/3.png" alt="Doberman">
+                <img src="IMG/4.png" alt="Lion">
+                <img src="IMG/5.png" alt="Golden Retriever">
+                <img src="IMG/6.png" alt="Red Fox">
+                <img src="IMG/7.png" alt="Hamster">
+                <img src="IMG/8.png" alt="Capybara">
+                <img src="IMG/9.png" alt="Duck">
+                <img src="IMG/10.png" alt="Sheep">
+                <img src="IMG/11.png" alt="Orange Cat">
+                <img src="IMG/12.png" alt="Chihuahua">
+                <img src="IMG/13.png" alt="Pigeon">
+                <img src="IMG/14.png" alt="Deer">
+                <img src="IMG/15.png" alt="Snow Leopard">
+                <img src="IMG/16.png" alt="Hedgehog">
+                <img src="IMG/17.png" alt="Bunny">
+                <img src="IMG/18.png" alt="Red Panda">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p2>All artworks are AI generated, You can use those freely.</p2>
+        <a href="https://connect-liv2.onrender.com/" target="_blank">&copy; 2026 Shovith Debnath</a>
+    </footer>
+
+    <script>
+        function triggerIconShower(event) {
+            for (let i = 0; i < 20; i++) { 
+                const icon = document.createElement('div');
+                icon.classList.add('icon');
+                
+                const isHeart = Math.random() > 0.5;
+                icon.textContent = isHeart ? '♥' : '★'; 
+                icon.classList.add(isHeart ? 'heart' : 'star');
+
+                // Random horizontal position
+                const x = Math.random() * window.innerWidth;
+                // Random delay so they don't all fall at once
+                const delay = Math.random() * 2;
+                
+                icon.style.left = `${x}px`;
+                icon.style.top = `-50px`;
+                icon.style.animationDelay = `${delay}s`;
+
+                document.body.appendChild(icon);
+
+                setTimeout(() => {
+                    icon.remove();
+                }, 5000); 
+            }
+        }
+
+        // Add a slight random tilt to images on load
+        document.querySelectorAll('.image-gallery img').forEach(img => {
+            const tilt = (Math.random() * 6) - 3; // Random tilt between -3 and 3 degrees
+            img.style.transform = `rotate(${tilt}deg)`;
+        });
+    </script>
+</body>
+</html>
