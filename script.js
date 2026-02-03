@@ -73,426 +73,410 @@ let currentMessageIndex = 0;
 const scores = { B: 0, S: 0, W: 0, G: 0, P: 0, D: 0, A: 0, R: 0 };
 
 const dialogue = [
-    // 0 (0)
-    {
-        speaker: 'bot',
-        text: ["*New notification from Unknown*"],
-        choices: [
-            { id: 1, text: '*Open*', type: 'A', weight: 2, next: 2, followUpText: [] },
-            { id: 2, text: '*Ignore it*', type: 'R', weight: 2, next: 1, followUpText: [] },
-            /*{ id: 2, text: 'DEBUG', type: 'O', weight: 0, next: 100, followUpText: [] },*/
-        ]
-    },
-    // 1
-    {
-        speaker: 'bot',
-        text: ['*Are you sure? It could be important!*'],
-        choices: [
-            { id: 1, text: 'FINE I\'ll open it', type: 'O', weight: 1, next: 2, followUpText: [] },
-        ]
-    },
-    // 2 (2)
-    {
-        speaker: 'bot',
-        text: ['Hey hey hey! Happy Valentine\'s Day!'],
-        choices: [
-            { id: 1, text: 'I think you got the wrong number', type: 'B', weight: 2, next: 3, followUpText: [] },
-            { id: 2, text: 'Thanks, but who r u?', type: 'S', weight: 2, next: 4, followUpText: [] },
-            { id: 3, text: '*don\'t reply, it could be a scam!*', type: 'W', weight: 2, next: 5, followUpText: [] },
-        ]
-    },
+  // 0 (0)
+  {
+    speaker: 'bot',
+    text: ["New post card from some random ass person…"],
+    choices: [
+      { id: 1, text: '*Open it 😮‍💨*', type: 'A', weight: 2, next: 2, followUpText: [] },
+      { id: 2, text: '*Ignore this bitch 😒*', type: 'R', weight: 2, next: 1, followUpText: [] },
+    ]
+  },
+  // 1
+  {
+    speaker: 'bot',
+    text: ["You’re really about to ignore it? Be fucking serious dumbass 😠, it could be important."],
+    choices: [
+      { id: 1, text: "Ugh, FINE, I'll open it 😩", type: 'O', weight: 1, next: 2, followUpText: [] },
+    ]
+  },
+  // 2 (2)
+  {
+    speaker: 'bot',
+    text: ["Okay first of all HIIII~, Happy Valentine’s Day, my fav hooman 💅"],
+    choices: [
+      { id: 1, text: 'Wrong number, move along', type: 'B', weight: 2, next: 3, followUpText: [] },
+      { id: 2, text: 'Thanks... but who the hell are you? 😀', type: 'S', weight: 2, next: 4, followUpText: [] },
+      { id: 3, text: 'Blocked. This is giving scam energy. 🤨', type: 'W', weight: 2, next: 5, followUpText: [] },
+    ]
+  },
 
-    // 3 (3_1)
-    {
-        speaker: 'bot',
-        text: ['Wrong number?! Pfftt that\'s not possible', "You summoned me afterall...","You're the one playing this quiz on Valentine's Day!"],
-        choices: [
-            { id: 1, text: 'Summoned you?', type: 'G', weight: 1, next: 6, followUpText: [] },
-            { id: 2, text: 'lol idk what ur talking abt', type: 'P', weight: 1, next: 6, followUpText: [] },
-            { id: 3, text: 'Who are you?!', type: 'D', weight: 1, next: 6, followUpText: [] }
-        ]
-    },
-    // 4 (3_2)
-    {
-        speaker: 'bot',
-        text: ['Me? You know me!', 'You summoned me just now.', "Wasn't it you who want to play this quiz on Valentine's Day?"],
-        choices: [
-            { id: 1, text: 'Summoned you?', type: 'G', weight: 1, next: 6, followUpText: [] },
-            { id: 2, text: 'lol idk what ur talking abt', type: 'P', weight: 1, next: 6, followUpText: [] },
-            { id: 3, text: 'No srly! Who are you?!', type: 'D', weight: 1, next: 6, followUpText: [] }
-        ]
-    },
-    // 5 (3_3)
-    {
-        speaker: 'bot',
-        text: ["Oh don't ignore me", "You're the one who summoned me!", "Didn't you want to play this quiz on Valentine's Day?"],
-        choices: [
-            { id: 1, text: 'Summoned you?', type: 'G', weight: 1, next: 6, followUpText: [] },
-            { id: 2, text: 'lol idk what ur talking abt', type: 'P', weight: 1, next: 6, followUpText: [] },
-            { id: 3, text: 'Who are you?!', type: 'D', weight: 1, next: 6, followUpText: [] }
-        ]
-    },
+  // 3 (3_1)    
+  {
+    speaker: 'bot',
+    text: ["Wrong number? Bitch, no. That’s literally not possible.", "You summoned me.", "On Valentine’s Day. Don’t play dumb."],
+    choices: [
+      { id: 1, text: 'Summoned you? Since when?', type: 'G', weight: 1, next: 6, followUpText: [] },
+      { id: 2, text: 'Literally no idea what you mean', type: 'P', weight: 1, next: 6, followUpText: [] },
+      { id: 3, text: 'Seriously, who are you?!', type: 'D', weight: 1, next: 6, followUpText: [] }
+    ]
+  },
+  // 4 (3_2)    
+  {
+    speaker: 'bot',
+    text: ["Me? You know exactly who I am.", "You called me here, don’t act clueless like this wasn’t your idea."],
+    choices: [
+      { id: 1, text: 'I summoned a Cupid? Pls.', type: 'G', weight: 1, next: 6, followUpText: [] },
+      { id: 2, text: 'I must have been drunk, idk you', type: 'P', weight: 1, next: 6, followUpText: [] },
+      { id: 3, text: 'Identify yourself, freak!', type: 'D', weight: 1, next: 6, followUpText: [] }
+    ]
+  },
+  // 5 (3_3)    
+  {
+    speaker: 'bot',
+    text: ["Don’t fucking ignore me.", "You summoned me.", "If you didn’t want this, you shouldn’t have touched the quiz."],
+    choices: [
+      { id: 1, text: 'Summoned? Is this a ritual?', type: 'G', weight: 1, next: 6, followUpText: [] },
+      { id: 2, text: 'I was just bored, chill out', type: 'P', weight: 1, next: 6, followUpText: [] },
+      { id: 3, text: 'Tell me who you are right now.', type: 'D', weight: 1, next: 6, followUpText: [] }
+    ]
+  },
 
-    // 6 (4)
-    {
-        speaker: 'bot',
-        text: ["Ok ok, I'll explain everything", "I'm your personal Cupid!", "Your love life is my job!!"],
-        choices: [
-            { id: 1, text: "Oh really? Clearly you need to work harder", type: 'P', weight: 2, next: 7, followUpText: [] },
-            { id: 2, text: "Ok Cupid, what do you want?", type: 'G', weight: 2, next: 8, followUpText: [] },
-            { id: 3, text: "I thought this was just a personality quiz...", type: 'D', weight: 2, next: 8, followUpText: [] },
+  // 6 (4)    
+  {
+    speaker: 'bot',
+    text: ["Okay, relax. I’ll explain—dramatic ass 🙄.", "I’m your personal Cupid.", "Your love life? Yeah, that’s my job."],
+    choices: [
+      { id: 1, text: "Clearly you’re failing at your job 🤓☝️", type: 'P', weight: 2, next: 7, followUpText: [] },
+      { id: 2, text: "Okay Cupid, what do you want?", type: 'G', weight: 2, next: 8, followUpText: [] },
+      { id: 3, text: "I thought this was just a personality test...", type: 'D', weight: 2, next: 8, followUpText: [] },
+    ]
+  },
 
-        ]
-    },
+  // 7 (5_1)    
+  {
+    speaker: 'bot',
+    text: ["Damn, rude. I’m trying my fucking best.", "Anyway, I gotta ask you 12 questions—Cupid rules.", "Once a year, deal with it."],
+    choices: [
+      { id: 1, text: "Fine, get it over with", type: 'R', weight: 1, next: 10, followUpText: [] },
+      { id: 2, text: "Whatever, I’m down", type: 'A', weight: 1, next: 10, followUpText: ["Maybe this will fix your tragic performance!"] },
+    ]
+  },
+  // 8 (5_2, 5_3)    
+  {
+    speaker: 'bot',
+    text: ["Wow, straight to the point. I respect it.", "Twelve questions. Cupid shit.", "No skipping."],
+    choices: [
+      { id: 1, text: "K.", type: 'R', weight: 1, next: 10, followUpText: [] },
+      { id: 2, text: "Sounds fun, let's do it", type: 'A', weight: 1, next: 10, followUpText: [] },
+    ]
+  },
 
-    // 7 (5_1)
-    {
-        speaker: 'bot',
-        text: ["Ouch! I'm trying my best here!", "Anyways, I'm here to ask you 12 questions", "Cupid's duty! We do this once a year!"],
-        choices: [
-            { id: 1, text: "Fine, I'll do it", type: 'R', weight: 1, next: 10, followUpText: [] },
-            { id: 2, text: "Sounds fun, I'm down!", type: 'A', weight: 1, next: 10, followUpText: ["Hopefully this helps improve your Cupid performance!"] },
-        ]
-    },
-    // 8 (5_2, 5_3)
-    {
-        speaker: 'bot',
-        text: ["Straight to the point, I see", "I'm here to ask you 12 questions", "Cupid's duty! We do this once a year!"],
-        choices: [
-            { id: 1, text: "Ok", type: 'R', weight: 1, next: 10, followUpText: [] },
-            { id: 2, text: "Sounds fun, I'm down!", type: 'A', weight: 1, next: 10, followUpText: [] },
-        ]
-    },
+  // 9 (6)    
+  {
+    speaker: 'bot',
+    text: ["There are twelve questions.", "No backing out. You ready or are you scared?"],
+    choices: [
+      { id: 1, text: "Just ask already!", type: 'O', weight: 0, next: 10, followUpText: [] },
+      { id: 2, text: "I’m ready for whatever", type: 'O', weight: 0, next: 10, followUpText: [] },
+      { id: 3, text: "Let's fucking go", type: 'O', weight: 0, next: 10, followUpText: [] },
+    ]
+  },
+
+  // 10 (Q1)    
+  {
+    speaker: 'bot',
+    text: ["Let’s start basic.", "1) What the fuck does love even mean to you?"],
+    choices: [
+      { id: 1, text: "A safe space to just exist together", type: 'G', weight: 2, next: 11, followUpText: [] },
+      { id: 2, text: "An absolute adventure with zero boring parts", type: 'P', weight: 2, next: 11, followUpText: [] },
+      { id: 3, text: "Ride or die commitment, no matter what", type: 'D', weight: 2, next: 11, followUpText: [] },
+      { id: 4, text: "A friendship where we actually trust each other", type: 'G', weight: 2, next: 11, followUpText: [] },
+      { id: 5, text: "It means [insert that person's name]", type: 'D', weight: 2, next: 11, followUpText: [] },
+      { id: 6, text: "Just hormones and brain activity, honestly", type: 'P', weight: 2, next: 11, followUpText: [] },
+    ]
+  },
+
+  // 11 (Q2)    
+  {
+    speaker: 'bot',
+    text: ["Okayyy, romantic as hell.", "So, 2) who do you usually fall for? Don’t lie, I’ll know."],
+    choices: [
+      { id: 1, text: "Coworkers or classmates", type: 'W', weight: 1, next: 12, followUpText: ["I mean, I'm stuck with them everyday!"] },
+      { id: 2, text: "I fall fast—usually at first sight", type: 'B', weight: 2, next: 12, followUpText: [] },
+      { id: 3, text: "Someone I've known forever, like a best friend", type: 'S', weight: 2, next: 12, followUpText: [] },
+      { id: 4, text: "Honestly? No one. I’m over it.", type: 'W', weight: 2, next: 12, followUpText: ["Unless we’re talking about celebrities, obviously."] },
+      { id: 5, text: "I don't have a type. When I know, I know.", type: 'B', weight: 1, next: 12, followUpText: [] },
+    ]
+  },
+
+  // 12 (Q3)    
+  {
+    speaker: 'bot',
+    text: ["3) So if you’re crushing right now, what’s the move? Or are you just gonna sit there and suffer?"],
+    choices: [
+      { id: 1, text: "I’m telling them immediately", type: 'B', weight: 2, next: 14, followUpText: ["I’ll just call them. If they say no, their loss.", "Like, what's the actual worst that could happen?"] },
+      { id: 2, text: "Keep talking and stay on their radar", type: 'S', weight: 2, next: 14, followUpText: ["Consistency is the whole game, babe."] },
+      { id: 3, text: "Do absolutely nothing.", type: 'W', weight: 1, next: 13, followUpText: ["They will take that secret to my grave."] },
+      { id: 4, text: "Avoid them like the plague", type: 'W', weight: 2, next: 13, followUpText: ["I’ll literally run if I see them coming."] },
+      { id: 5, text: "Make subtle moves", type: 'B', weight: 1, next: 14, followUpText: ["Just small hints. I’m not desperate."] },
+    ]
+  },
+  // 13 (Q4_3,4)    
+  {
+    speaker: 'bot',
+    text: ["Ngl gurl, same. While we’re waiting and overthinking—", "4) What kind of dates actually get you excited?"],
+    choices: [
+      { id: 1, text: "Chill and low-key where we can actually talk", type: 'G', weight: 2, next: 15, followUpText: [] },
+      { id: 2, text: "Something spontaneous and fun as hell", type: 'P', weight: 2, next: 16, followUpText: [] },
+      { id: 3, text: "Sweet, intimate, and super affectionate", type: 'D', weight: 2, next: 17, followUpText: [] },
+    ]
+  },
+  // 14 (Q4_1,2,5)    
+  {
+    speaker: 'bot',
+    text: ["I love that energy. Confidence like that? Yeah, that gets you attention, babe.", "4) What kind of dates actually get you excited?"],
+    choices: [
+      { id: 1, text: "Relaxed vibes where we can spend real time", type: 'G', weight: 2, next: 15, followUpText: [] },
+      { id: 2, text: "Something fun with lots of cute moments", type: 'P', weight: 2, next: 16, followUpText: [] },
+      { id: 3, text: "Something romantic and cherished", type: 'D', weight: 2, next: 17, followUpText: [] },
+    ]
+  },
+
+  // 15 (Q5_1C)    
+  {
+    speaker: 'bot',
+    text: ["Ohhh, comfy vibes. Cute.", "5) So what does that look like—spell it out."],
+    choices: [
+      { id: 1, text: "Bookstores - choosing books for each other", type: 'R', weight: 2, next: 18, followUpText: [] },
+      { id: 2, text: "Gym - a challenge to see who’s better", type: 'A', weight: 2, next: 18, followUpText: ["Loser owes a hug. I don't make the rules!"] },
+      { id: 3, text: "Park - picnic and maybe some boats", type: 'A', weight: 2, next: 18, followUpText: [] },
+      { id: 4, text: "Home - cooking our favorite shit together", type: 'R', weight: 2, next: 18, followUpText: ["The way to my heart is through my stomach!"] },
+      { id: 5, text: "Planetarium - stars and holding hands", type: 'A', weight: 1, next: 18, followUpText: ["Plus, I get to nerd out about space!"] },
+    ]
+  },
+  // 16 (Q5_2P)    
+  {
+    speaker: 'bot',
+    text: ["Oh, you like surprises? Okay thrill-seeker.", "5) What kind of chaos are we choosing?"],
+    choices: [
+      { id: 1, text: "Aquarium - holding hands near the fish", type: 'R', weight: 2, next: 18, followUpText: [] },
+      { id: 2, text: "Karaoke - screaming our hearts out", type: 'A', weight: 2, next: 18, followUpText: ["My favorite song is the sound of their voice <3"] },
+      { id: 3, text: "Art museum - looking at pretty things", type: 'A', weight: 1, next: 18, followUpText: ["Perfect chance to tell them they’re the real art."] },
+      { id: 4, text: "Amusement park - roller coasters and screaming", type: 'A', weight: 2, next: 18, followUpText: [] },
+      { id: 5, text: "My sofa - movies and lots of cuddling", type: 'R', weight: 2, next: 18, followUpText: [] },
+    ]
+  },
+  // 17 (Q5_2D)    
+  {
+    speaker: 'bot',
+    text: ["Wow. Romantic as fuck.", "5) Where are we going, Notebook energy or what?"],
+    choices: [
+      { id: 1, text: "Fancy Dinner - candles, wine, the whole bit", type: 'R', weight: 2, next: 18, followUpText: ["Nothing beats expensive food."] },
+      { id: 2, text: "Bowling - let the games begin", type: 'A', weight: 2, next: 18, followUpText: ["Loser gets a hug. It's a win-win."] },
+      { id: 3, text: "Library - studying and being quiet together", type: 'R', weight: 2, next: 18, followUpText: ["Stolen glances in the stacks are iconic."] },
+      { id: 4, text: "Hiking - getting lost in nature together", type: 'A', weight: 2, next: 18, followUpText: ["Love is a trek, after all."] },
+      { id: 5, text: "Orchard - picking fruit and holding hands", type: 'A', weight: 1, next: 18, followUpText: [] },
+    ]
+  },
+
+  // 18 (Q6)    
+  {
+    speaker: "bot",
+    text: ["That’s cute. Like, annoyingly cute.", "6) So what’s your love language, huh?"],
+    choices: [
+      { id: 1, text: "Quality time", type: 'G', weight: 2, next: 19, followUpText: [] },
+      { id: 2, text: "Physical touch", type: 'P', weight: 2, next: 20, followUpText: [] },
+      { id: 3, text: "Words of affirmation", type: 'G', weight: 2, next: 21, followUpText: [] },
+      { id: 4, text: "Acts of service", type: 'D', weight: 2, next: 22, followUpText: [] },
+      { id: 5, text: "Gifts", type: 'D', weight: 2, next: 23, followUpText: [] },
+      { id: 6, text: "Teasing and banter", type: 'P', weight: 2, next: 24, followUpText: ["Wait, there’s only 5? Not anymore."] },
+    ]
+  },
+  // 19 (Q7)    
+  {
+    speaker: "bot",
+    text: ["7) Okay but when you say “quality time,” what the hell are you actually doing together?"],
+    choices: [
+      { id: 1, text: "Taking a trip somewhere far away", type: "B", weight: 2, next: 25, followUpText: [] },
+      { id: 2, text: "Just doing the usual shit we both like", type: "S", weight: 2, next: 25, followUpText: [] },
+      { id: 3, text: "Cozy nights with deep, real talks", type: "W", weight: 2, next: 25, followUpText: [] },
+    ]
+  },
+  // 20 (Q7)    
+  {
+    speaker: "bot",
+    text: ["7) Don’t be vague—give me an example."],
+    choices: [
+      { id: 1, text: "Sudden hugs and kisses out of nowhere", type: "B", weight: 2, next: 25, followUpText: [] },
+      { id: 2, text: "Cuddling up and holding hands tight", type: "S", weight: 2, next: 25, followUpText: [] },
+      { id: 3, text: "Head pats and intense eye contact", type: "W", weight: 2, next: 25, followUpText: [] }
+    ]
+  },
+  // 21 (Q7)    
+  {
+    speaker: "bot",
+    text: ["7) No, seriously. Be specific."],
+    choices: [
+      { id: 1, text: "Hyping them up until they’re blushing", type: "B", weight: 2, next: 25, followUpText: [] },
+      { id: 2, text: "Reminding them I’m always on their side", type: "S", weight: 2, next: 25, followUpText: [] },
+      { id: 3, text: "Telling them exactly why they’re appreciated", type: "W", weight: 2, next: 25, followUpText: [] },
+    ]
+  },
+  // 22 (Q7)    
+  {
+    speaker: "bot",
+    text: ["7) Acts of service? Babe, what are you doing - laundry or emotional labor?"],
+    choices: [
+      { id: 1, text: "Everything—they don't even have to ask", type: "B", weight: 2, next: 25, followUpText: [] },
+      { id: 2, text: "Handling the small daily chores", type: "S", weight: 2, next: 25, followUpText: [] },
+      { id: 3, text: "Whatever they need, I've got it covered", type: "W", weight: 2, next: 25, followUpText: [] },
+    ]
+  },
+  // 23 (Q7)    
+  {
+    speaker: "bot",
+    text: ["7) Alright gift-giver, what kinda gifts we talking—cheap or thoughtful?"],
+    choices: [
+      { id: 1, text: "Extravagant and one-of-a-kind", type: "B", weight: 2, next: 25, followUpText: ["If they want it, I’m getting it for them. Period."] },
+      { id: 2, text: "Practical things they actually need", type: "S", weight: 2, next: 25, followUpText: ["I pay attention to the details, unlike some people."] },
+      { id: 3, text: "Something personal and super thoughtful", type: "W", weight: 2, next: 25, followUpText: ["Something custom made, just for them."] },
+    ]
+  },
+  // 24 (Q7)    
+  {
+    speaker: "bot",
+    text: ["Congratulations, you just made up a whole new love language.", "7) Wanna explain yourself or nah?"],
+    choices: [
+      { id: 1, text: "They’re just too cute when I make them pout!", type: "B", weight: 2, next: 25, followUpText: [] },
+      { id: 2, text: "I love a little sass if it’s fun", type: "S", weight: 2, next: 25, followUpText: [] },
+      { id: 3, text: "Pranks are life, as long as they’re cool with it", type: "W", weight: 2, next: 25, followUpText: [] },
+    ]
+  },
+
+  // 25 (Q8)    
+  {
+    speaker: "bot",
+    text: ["Oh? Interesting. I’m learning shit about you already.", "8) So what’s your date outfit vibe—hot or comfy?"],
+    choices: [
+      { id: 1, text: "Classy and timeless vibes", type: "D", weight: 2, next: 26, followUpText: [] },
+      { id: 2, text: "Stylish and cool as fuck", type: "P", weight: 1, next: 26, followUpText: [] },
+      { id: 3, text: "Simple and comfortable", type: "G", weight: 2, next: 26, followUpText: [] },
+      { id: 4, text: "Literally anything and my Crocs", type: "P", weight: 2, next: 26, followUpText: [] },
+      { id: 5, text: "Whatever makes me feel confident", type: "G", weight: 1, next: 26, followUpText: [] },
+    ]
+  },
+
+  // 26 (Q9)    
+  {
+    speaker: "bot",
+    text: ["9) What’s the one thing you always bring on a date? And don’t say “trauma.”"],
+    choices: [
+      { id: 1, text: "A fresh bouquet of flowers", type: "B", weight: 2, next: 27, followUpText: [] },
+      { id: 2, text: "My wallet, obviously", type: "S", weight: 2, next: 27, followUpText: [] },
+      { id: 3, text: "My entire backpack", type: "W", weight: 2, next: 27, followUpText: ["I’ve got wipes, gum, band-aids... I'm prepared!"] },
+      { id: 4, text: "A big umbrella", type: "W", weight: 2, next: 27, followUpText: ["Big enough for both of us if it rains."] },
+      { id: 5, text: "A camera", type: "B", weight: 2, next: 27, followUpText: ["Gotta capture the memories, babe."] },
+      { id: 6, text: "A small, cute gift", type: "S", weight: 2, next: 27, followUpText: ["Like matching keychains or a plushie."] },
+    ]
+  },
+
+  // 27 (Q10)    
+  {
+    speaker: "bot",
+    text: ["Okay, smart ass choice. Enough fake romance—", "10) Who are you in your friend group?"],
+    choices: [
+      { id: 1, text: "The one who’s actually taken", type: "D", weight: 2, next: 28, followUpText: [] },
+      { id: 2, text: "The quiet, mysterious one", type: "G", weight: 2, next: 31, followUpText: [] },
+      { id: 3, text: "The one who plans every single thing", type: "P", weight: 2, next: 30, followUpText: [] },
+      { id: 4, text: "The shipper and matchmaker", type: "P", weight: 2, next: 29, followUpText: [] },
+      { id: 5, text: "Single, but I’m the love guru", type: "G", weight: 2, next: 29, followUpText: ["Coaches don’t play the game, honey!"] },
+      { id: 6, text: "Friends? Who said I have friends?", type: "D", weight: 2, next: 32, followUpText: [] },
+    ]
+  },
+
+  // 28 (Q11_)    
+  {
+    speaker: 'bot',
+    text: ["Ohhh, taken? I see you.", "11) So what relationship advice you got, expert?"],
+    choices: [
+      { id: 1, text: "Never settle for less. Know your worth.", type: 'B', weight: 2, next: 33, followUpText: [] },
+      { id: 2, text: "Put in the effort to make them happy", type: 'W', weight: 2, next: 33, followUpText: [] },
+      { id: 3, text: "Make every day feel special", type: 'S', weight: 2, next: 33, followUpText: [] },
+    ]
+  },
+
+  // 29 (Q11_2,3)    
+  {
+    speaker: 'bot',
+    text: ["Damn, playing Cupid now?", "11) Alright bitch, drop the wisdom."],
+    choices: [
+      { id: 1, text: "Don't settle. You know what's best for you.", type: 'B', weight: 2, next: 33, followUpText: [] },
+      { id: 2, text: "Effort is everything. Work for it.", type: 'W', weight: 2, next: 33, followUpText: [] },
+      { id: 3, text: "Cherish every single moment you have.", type: 'S', weight: 2, next: 33, followUpText: [] },
+    ]
+  },
+
+  // 30 (Q11_3,4)    
+  {
+    speaker: 'bot',
+    text: ["Yeah, I can tell—you’re cool.", "11) So if you met your past self, what love advice are you giving?"],
+    choices: [
+      { id: 1, text: "Tell them to never settle for less", type: 'B', weight: 2, next: 33, followUpText: [] },
+      { id: 2, text: "Tell them to actually put in some effort", type: 'W', weight: 2, next: 33, followUpText: [] },
+      { id: 3, text: "Tell them to make every day feel special", type: 'S', weight: 2, next: 33, followUpText: [] },
+    ]
+  },
+
+  // 31 (Q11...)    
+  {
+    speaker: 'bot',
+    text: ["Definitely the cool one.", "11) So—past you. What’s the lesson?"],
+    choices: [
+      { id: 1, text: "Know your worth and don't settle", type: 'B', weight: 2, next: 33, followUpText: [] },
+      { id: 2, text: "Happy partners need happy effort", type: 'W', weight: 2, next: 33, followUpText: [] },
+      { id: 3, text: "Live in the moment and cherish it", type: 'S', weight: 2, next: 33, followUpText: [] },
+    ]
+  },
+
+  // 32 (Q11...)    
+  {
+    speaker: 'bot',
+    text: ["Bitch you better be joking, of course you have friends. I’m one now.", "And yeah—you are your own best friend. Don’t forget that shit.", "11) So—past you. What’s the love advice?"],
+    choices: [
+      { id: 1, text: "Never ever settle for a basic bitch", type: 'B', weight: 2, next: 33, followUpText: [] },
+      { id: 2, text: "Try harder to make things work", type: 'W', weight: 2, next: 33, followUpText: [] },
+      { id: 3, text: "Make every single moment count", type: 'S', weight: 2, next: 33, followUpText: [] },
+    ]
+  },
+
+  // 33 (Q12)    
+  {
+    speaker: 'bot',
+    text: ["Last question. Make it count.", "12) What are you wishing for?"],
+    choices: [
+      { id: 1, text: "Literal tons of chocolate", type: 'P', weight: 2, next: 34, followUpText: [] },
+      { id: 2, text: "Send me some actual love for once", type: 'G', weight: 2, next: 34, followUpText: [] },
+      { id: 3, text: "For my crush to finally like me back 😭😭", type: 'D', weight: 2, next: 34, followUpText: [] },
+      { id: 4, text: "Just a happy Valentine’s Day", type: 'P', weight: 2, next: 34, followUpText: [] },
+      { id: 5, text: "A weekend where I can actually sleep", type: 'D', weight: 2, next: 34, followUpText: [] },
+    ]
+  },
+
+  // 34    
+  {
+    speaker: 'bot',
+    text: ["Noted. Manifesting that for you.", "So what are you actually doing today—", "besides this dumb little quiz?"],
+    choices: [
+      { id: 1, text: "Eating way too much chocolate", type: 'R', weight: 2, next: 35, followUpText: [] },
+      { id: 2, text: "Going out to have some real fun", type: 'A', weight: 1, next: 35, followUpText: [] },
+      { id: 3, text: "Working or studying like a loser T^T", type: 'R', weight: 1, next: 35, followUpText: [] },
+      { id: 4, text: "Duh, I actually have a date", type: 'A', weight: 1, next: 35, followUpText: [] },
+      { id: 5, text: "Zero plans, just rotting at home", type: 'R', weight: 1, next: 35, followUpText: [] },
+    ]
+  },
 
 
-    // 9 (6)
-    {
-        speaker: 'bot',
-        text: ["There will be 12 questions!", "Ready?"],
-        choices: [
-            { id: 1, text: "Alright, ask away!", type: 'O', weight: 0, next: 10, followUpText: [] },
-            { id: 2, text: "I was born ready!", type: 'O', weight: 0, next: 10, followUpText: [] },
-            { id: 3, text: "Let's gooo", type: 'O', weight: 0, next: 10, followUpText: [] },
-        ]
-    },
-
-    // 10 (Q1)
-    {
-        speaker: 'bot',
-        text: ["Let's start with the basics", "1) What is 'love' to you?"],
-        choices: [
-            { id: 1, text: "a safe space, to be ourselves and to simply be together", type: 'G', weight: 2, next: 11, followUpText: [] },
-            { id: 2, text: "an adventure, filled with fun and unforgettable memories", type: 'P', weight: 2, next: 11, followUpText: [] },
-            { id: 3, text: "a commitment, being there for each other no matter what", type: 'D', weight: 2, next: 11, followUpText: [] },
-            { id: 4, text: "a beautiful friendship, built on trust and understanding", type: 'G', weight: 2, next: 11, followUpText: [] },
-            { id: 5, text: "[insert that person's name]", type: 'D', weight: 2, next: 11, followUpText: [] },
-            { id: 6, text: "a complex neurobiological process involving hormones and brain activity", type: 'P', weight: 2, next: 11, followUpText: [] },
-        ]
-    },
-
-    // 11 (Q2)
-    {
-        speaker: 'bot',
-        text: ["How...romantic", "Sooo, 2) Who do you usually have a crush on?"],
-        choices: [
-            { id: 1, text: "coworker / classmate", type: 'W', weight: 1, next: 12, followUpText: ["I mean, I see them everyday!"] },
-            { id: 2, text: "hard to say, it's often love at first sight", type: 'B', weight: 2, next: 12, followUpText: [] },
-            { id: 3, text: "Someone I've been close to for a while, like a best friend", type: 'S', weight: 2, next: 12, followUpText: [] },
-            { id: 4, text: "I've never really have a crush on anyone...", type: 'W', weight: 2, next: 12, followUpText: ["unless celebrity crushes count!"] },
-            { id: 5, text: "I don't have a type. I just know when it feels right", type: 'B', type2: 'S', weight: 1, next: 12, followUpText: [] },
-        ]
-    },
-
-
-    // 12 (Q3)
-    {
-        speaker: 'bot',
-        text: ["3) What if you have a crush right now, what's next?"],
-        choices: [
-            { id: 1, text: "Tell them!", type: 'B', weight: 2, next: 14, followUpText: ["I'll just message/call them and talk it out","What's the worst that could happen?"] },
-            { id: 2, text: "Keep talking to them!", type: 'S', weight: 2, next: 14, followUpText: ["Consistency is the key!"] },
-            { id: 3, text: "Do absolutely NOTHING", type: 'W', weight: 1, next: 13, followUpText: ["I will never ever let them know..."] },
-            { id: 4, text: "Avoid them", type: 'W', weight: 2, next: 13, followUpText: ["I will run if I have to"] },
-            { id: 5, text: "Make subtle moves", type: 'B', type2: 'S', weight: 1, next: 14, followUpText: ["Drops small hints, just don't make it too obvious!"] },
-        ]
-    },
-    // 13 (Q4_3,4)
-    {
-        speaker: 'bot',
-        text: ["lol I'd do that, too!", "While we're just sitting and waiting...", "4) What kind of dates excite you the most?"],
-        choices: [
-            { id: 1, text: "Chill and relaxed, where we can spend time together", type: 'G', weight: 2, next: 15, followUpText: [] },
-            { id: 2, text: "Fun and spontaneous, loaded with beautiful memories", type: 'P', weight: 2, next: 16, followUpText: [] },
-            { id: 3, text: "Sweet and intimate, showering each other with affections", type: 'D', weight: 2, next: 17, followUpText: [] },
-        ]
-    },
-    // 14 (Q4_1,2,5)
-    {
-        speaker: 'bot',
-        text: ["Aww, I love the spirit!!", "Being bold might just secure you a date!", "4) What kind of dates excite you the most?"],
-        choices: [
-            { id: 1, text: "Chill and relaxed, where we can spend time together", type: 'G', weight: 2, next: 15, followUpText: [] },
-            { id: 2, text: "Fun and spontaneous, a lot of cute moments together!", type: 'P', weight: 2, next: 16, followUpText: [] },
-            { id: 3, text: "Sweet and intimate, cherishing each other’s company", type: 'D', weight: 2, next: 17, followUpText: [] },
-        ]
-    },
-
-    // 15 (Q5_1C)
-    {
-        speaker: 'bot',
-        text: ["Going for the comfortable vibes, I see", "5) Any idea what might that be?"],
-        choices: [
-            { id: 1, text: "Bookstores - pick a book for each other!", type: 'R', weight: 2, next: 18, followUpText: [] },
-            { id: 2, text: "Gym - friendly sports challenge to strengthen our bond", type: 'A', weight: 2, next: 18, followUpText: ["Loser gets a hug. win-win!"] },
-            { id: 3, text: "Park - picnic date and some boat paddling", type: 'A', weight: 2, next: 18, followUpText: [] },
-            { id: 4, text: "Home - cooking our favorite dish", type: 'R', weight: 2, next: 18, followUpText: ["A way to one's heart is through their stomach!"] },
-            { id: 5, text: "Planetarium - traveling the universe while holding hands", type: 'A', type2: 'R', weight: 1, next: 18, followUpText: ["Plus, I get to geek out on the space stuffs!"] },
-        ]
-    },
-    // 16 (Q5_2P)
-    {
-        speaker: 'bot',
-        text: ["Exciting! you're up for some surprises, I see", "5) Any idea what might that be?"],
-        choices: [
-            { id: 1, text: "Aquarium - exploring sea lives while holding hands", type: 'R', weight: 2, next: 18, followUpText: [] },
-            { id: 2, text: "Karaoke - singing our hearts out", type: 'A', weight: 2, next: 18, followUpText: ["My favorite tune is the sound of their heartbeat <3"] },
-            { id: 3, text: "Art museum - peaceful stroll with beautiful backdrops", type: 'A', type2: 'R', weight: 1, next: 18, followUpText: ["Good way to prove that they are the most beautiful work of art"] },
-            { id: 4, text: "Amusement park - ferris wheel and roller coasters, yippieee", type: 'A', weight: 2, next: 18, followUpText: [] },
-            { id: 5, text: "My sofa - cuddling and watching movies", type: 'R', weight: 2, next: 18, followUpText: [] },
-        ]
-    },
-    // 17 (Q5_2D)
-    {
-        speaker: 'bot',
-        text: ["How romantic!", "5) Any idea what might that be?"],
-        choices: [
-            { id: 1, text: "Fancy Diner - candle lit and wine...perfect!", type: 'R', weight: 2, next: 18, followUpText: ["Nothing beats some good food"] },
-            { id: 2, text: "Bowling alley - game on!", type: 'A', weight: 2, next: 18, followUpText: ["Loser gets a hug. win-win!"] },
-            { id: 3, text: "Library - working/studying together", type: 'R', weight: 2, next: 18, followUpText: ["Stolen glances and quiet moments are magical"] },
-            { id: 4, text: "Hiking trails - be one with the nature, together!", type: 'A', weight: 2, next: 18, followUpText: ["Love is an adventure, afterall"] },
-            { id: 5, text: "Orchard - holding hands and picking apples", type: 'A', type2: 'R', weight: 1, next: 18, followUpText: [] },
-        ]
-    },
-
-    // 18 (Q6)
-    {
-        speaker: "bot",
-        text: ["Cuuuute", "6) Which love language matches yours the most?","These will come in handy for your date!"],
-        choices: [
-            { id: 1, text: "Quality time", type: 'G', weight: 2, next: 19, followUpText: [] },
-            { id: 2, text: "Physical touch", type: 'P', weight: 2, next: 20, followUpText: [] },
-            { id: 3, text: "Words of affirmation", type: 'G', weight: 2, next: 21, followUpText: [] },
-            { id: 4, text: "Acts of service", type: 'D', weight: 2, next: 22, followUpText: [] },
-            { id: 5, text: "Giving/Recieving gifts", type: 'D', weight: 2, next: 23, followUpText: [] },
-            { id: 6, text: "Teasing/Playful banter", type: 'P', weight: 2, next: 24, followUpText: ["What? There are only 5 love languages?!"] },
-        ]
-    },
-    // 19 (Q7)
-    {
-        speaker: "bot",
-        text: ["7) What do you do during those quality time?"],
-        choices: [
-            { id: 1, text: "Go on a trip!", type: "B", weight: 2, next: 25, followUpText: [] },
-            { id: 2, text: "Just the usual, doing something we both enjoy", type: "S", weight: 2, next: 25, followUpText: [] },
-            { id: 3, text: "Cozy evening, sharing deep conversations", type: "W", weight: 2, next: 25, followUpText: [] },
-        ]
-    },
-    // 20 (Q7)
-    {
-        speaker: "bot",
-        text: ["7) For example...?"],
-        choices: [
-            { id: 1, text: "Spontaneous hugs and kisses", type: "B", weight: 2, next: 25, followUpText: [] },
-            { id: 2, text: "Cuddling and holding hands", type: "S", weight: 2, next: 25, followUpText: [] },
-            { id: 3, text: "Gentle head pats and eyes contacts", type: "W", weight: 2, next: 25, followUpText: [] }
-        ]
-    },
-    // 21 (Q7)
-    {
-        speaker: "bot",
-        text: ["7) For example...?"],
-        choices: [
-            { id: 1, text: "Showers with compliments until they're a puddle", type: "B", weight: 2, next: 25, followUpText: [] },
-            { id: 2, text: "Assure them that I’ll always be by their side", type: "S", weight: 2, next: 25, followUpText: [] },
-            { id: 3, text: "Remind them how much I appreciate them", type: "W", weight: 2, next: 25, followUpText: [] },
-        ]
-    },
-    /*{
-        speaker: "bot",
-        text: ["7) For example...?"],
-        choices: [
-            { id: 1, text: "Have I mentioned how amazing you are? Well, I’m saying it again", type: "B", weight: 2, next: 25, followUpText: [] },
-            { id: 2, text: "I’ve got your back, always", type: "S", weight: 2, next: 25, followUpText: [] },
-            { id: 3, text: "I'm lucky to have you. I trust you more than anyone", type: "W", weight: 2, next: 25, followUpText: [] },
-        ]
-    },*/
-
-    // 22 (Q7)
-    {
-        speaker: "bot",
-        text: ["7) What act? What service?!"],
-        choices: [
-            { id: 1, text: "Anything and everything for them, they don't even have to ask", type: "B", weight: 2, next: 25, followUpText: [] },
-            { id: 2, text: "Taking care of small things, like chores, every day", type: "S", weight: 2, next: 25, followUpText: [] },
-            { id: 3, text: "Anything they need, just name it", type: "W", weight: 2, next: 25, followUpText: [] },
-        ]
-    },
-    // 23 (Q7)
-    {
-        speaker: "bot",
-        text: ["7) What kind of gifts would you give?"],
-        choices: [
-            { id: 1, text: "Unique and extravagant", type: "B", weight: 2, next: 25, followUpText: ["I’ll get them anything they want—it’s theirs once they set their eyes on it"] },
-            { id: 2, text: "Practical and meaningful", type: "S", weight: 2, next: 25, followUpText: ["I pay close attention to what they actually need","It'd be something that reminds me of them"] },
-            { id: 3, text: "Personalized and thoughtful", type: "W", weight: 2, next: 25, followUpText: ["Something custom-made—like a one-of-a-kind gift, just for them"] },
-        ]
-    },
-    // 24 (Q7)
-    {
-        speaker: "bot",
-        text: ["You just invented the 6th love langauge!", "7) Care to elaborate?"],
-        choices: [
-            { id: 1, text: "I just can’t resist, they’re too cute when I make them pout!", type: "B", weight: 2, next: 25, followUpText: [] },
-            { id: 2, text: "I’m all for a little sass, as long as it’s fun for both of us", type: "S", weight: 2, next: 25, followUpText: [] },
-            { id: 3, text: "I’m in for some fun pranks, but always make sure they’re comfortable with it", type: "W", weight: 2, next: 25, followUpText: [] },
-        ]
-    },
-
-    // 25 (Q8)
-    {
-        speaker: "bot",
-        text: ["Is that so? I'm learning a lot about you already!", "8) What's the vibes of your go-to outfit for a date?"],
-        choices: [
-            { id: 1, text: "Classy and timeless", type: "D", weight: 2, next: 26, followUpText: [] },
-            { id: 2, text: "Stylish and cool", type: "P", weight: 1, next: 26, followUpText: [] },
-            { id: 3, text: "Simple and comfortable", type: "G", weight: 2, next: 26, followUpText: [] },
-            { id: 4, text: "Anything and my crocs", type: "P", weight: 2, next: 26, followUpText: [] },
-            { id: 4, text: "Something I rock with confidence", type: "G", type2: "D", weight: 1, next: 26, followUpText: [] },
-            
-        ]
-    },
-
-    // 26 (Q9)
-    {
-        speaker: "bot",
-        text: ["9) What's one item you would definitely bring on a date?"],
-        choices: [
-            { id: 1, text: "a flower bouquet", type: "B", weight: 2, next: 27, followUpText: [] },
-            { id: 2, text: "my wallet", type: "S", weight: 2, next: 27, followUpText: [] },
-            { id: 3, text: "my *whole* backpack", type: "W", weight: 2, next: 27, followUpText: ["I got wet wipes, gum, band-aid...","just in case they need it too!"] },
-            { id: 4, text: "an umbrella", type: "W", weight: 2, next: 27, followUpText: ["big enough to fit both of us in case it rains"] },
-            { id: 5, text: "a camera", type: "B", weight: 2, next: 27, followUpText: ["to capture our memories"] },
-            { id: 6, text: "a small gift", type: "S", weight: 2, next: 27, followUpText:  ["like a plushie or matching key chains"] },
-        ]
-    },
-
-
-    // 27 (Q10)
-    {
-        speaker: "bot",
-        text: ["Wise choice! Now, enough with your (hypothetical) love scenarios", "Let's get to know YOU more!", "10) Who are you in a friend group?"],
-        choices: [
-            { id: 1, text: "The taken one", type: "D", type2: "A", weight: 2, next: 28, followUpText: [] },
-            { id: 2, text: "The quiet/mysterious one", type: "G", type2: "R", weight: 2, next: 31, followUpText: [] },
-            { id: 3, text: "The one who plans all the hangouts", type: "P", type2: "A", weight: 2, next: 30, followUpText: [] },
-            { id: 4, text: "The shipper/matchmaker", type: "P", type2: "R", weight: 2, next: 29, followUpText: [] },
-            { id: 5, text: "The single but love guru", type: "G", type2: "A", weight: 2, next: 29, followUpText: ["Coaches don’t play ;)"] },
-            { id: 6, text: "Bold of you to assume I have friends", type: "D", type2: "R", weight: 2, next: 32, followUpText: [] },
-        ]
-    },
-
-    // 28 (Q11_)
-    {
-        speaker: 'bot',
-        text: ["Ooooh taken, I see", "11) Any words of advices on relationship?"],
-        choices: [
-            { id: 1, text: "Never settle for less. You know what's best for yourself", type: 'B', weight: 2, next: 33, followUpText: [] },
-            { id: 2, text: "Put in the effort, strive to make your loved one happy", type: 'W', weight: 2, next: 33, followUpText: [] },
-            { id: 3, text: "Make every day feel special, cherish every moments in life", type: 'S', weight: 2, next: 33, followUpText: [] },
-        ]
-    },
-
-    // 29 (Q11_2,3)
-    {
-        speaker: 'bot',
-        text: ["Ooooh, looks like someone's playing Cupid!", "11) Any wisdom to share, love expert?"],
-        choices: [
-            { id: 1, text: "Never settle for less. You know what's best for yourself", type: 'B', weight: 2, next: 33, followUpText: [] },
-            { id: 2, text: "Put in the effort, strive to make your loved one happy", type: 'W', weight: 2, next: 33, followUpText: [] },
-            { id: 3, text: "Make every day feel special, cherish every moments in life", type: 'S', weight: 2, next: 33, followUpText: [] },
-        ]
-    },
-
-    // 30 (Q11_3,4)
-    {
-        speaker: 'bot',
-        text: ["Okayy, I bet you're cool","Now, let's say you meet your past self","11) What love advice would you give them?"],
-        choices: [
-            { id: 1, text: "Never settle for less. You know what's best for yourself", type: 'B', weight: 2, next: 33, followUpText: [] },
-            { id: 2, text: "Put in the effort, strive to make your loved one happy", type: 'W', weight: 2, next: 33, followUpText: [] },
-            { id: 3, text: "Make every day feel special, cherish every moments in life", type: 'S', weight: 2, next: 33, followUpText: [] },
-        ]
-    },
-
-    // 31 (Q11...)
-    {
-        speaker: 'bot',
-        text: ["The cool one, I see","Now, let's say you meet your past self","11) What love advice would you give them?"],
-        choices: [
-            { id: 1, text: "Never settle for less. You know what's best for yourself", type: 'B', weight: 2, next: 33, followUpText: [] },
-            { id: 2, text: "Put in the effort, strive to make your loved one happy", type: 'W', weight: 2, next: 33, followUpText: [] },
-            { id: 3, text: "Make every day feel special, cherish every moments in life", type: 'S', weight: 2, next: 33, followUpText: [] },
-        ]
-    },
-
-    // 32 (Q11...)
-    {
-        speaker: 'bot',
-        text: ["Of course you have friends! Count me in!", "And hey, you are your own best friend—ever heard that saying?", "Now, let's say you meet your past self...", "11) What love advice would you give them?"],
-        choices: [
-            { id: 1, text: "Never settle for less. You know what's best for yourself", type: 'B', weight: 2, next: 33, followUpText: [] },
-            { id: 2, text: "Put in the effort, strive to make your loved one happy", type: 'W', weight: 2, next: 33, followUpText: [] },
-            { id: 3, text: "Make every day feel special, cherish every moments in life", type: 'S', weight: 2, next: 33, followUpText: [] },
-        ]
-    },
-
-    // 33 (Q12)
-    {
-        speaker: 'bot',
-        text: ["Down to the last question, then","12) Anything you'd like to wish for?"],
-        choices: [
-            { id: 1, text: "For A LOT OF Chocolate!!", type: 'P',weight: 2, next: 34, followUpText: [] },
-            { id: 2, text: "Send me some looove", type: 'G',weight: 2, next: 34, followUpText: [] },
-            { id: 3, text: "For my crush to like me back", type: 'D',weight: 2, next: 34, followUpText: [] },
-            { id: 4, text: "For a Happy Valentine's Day", type: 'P',weight: 2, next: 34, followUpText: [] },
-            { id: 5, text: "For a restful weekend", type: 'D',type2:'G',weight: 2, next: 34, followUpText: [] },
-        ]
-    },
-
-    // 34
-    {
-        speaker: 'bot',
-        text: ["Noted, that shall be served","oh, Just curious, what's your plan today?","Apart from playing this silly quiz, of course"],
-        choices: [
-            { id: 1, text: "Eat a lot of chocolate!!!", type: 'R',weight: 2, next: 35, followUpText: [] },
-            { id: 2, text: "gonna go out and have funn!", type: 'A',weight: 1, next: 35, followUpText: [] },
-            { id: 3, text: "I need to work/study T^T", type: 'R',weight: 1, next: 35, followUpText: [] },
-            { id: 4, text: "Duh, I have a date!", type: 'A',weight: 1, next: 35, followUpText: [] },
-            { id: 5, text: "No plans, just chilling at home", type: 'R',weight: 1, next: 35, followUpText: [] },
-        ]
-    },
-    
-
-    // 35 last
-    {
-        speaker: 'bot',
-        text: ["lololl have fun!","Ready to see your result?"],
-        choices: [
-            { id: 1, text: 'YES!', type: 'O', weight: 0, next: 100, followUpText: [] },
-        ]
-    },
-
+  // 35 last    
+  {
+    speaker: 'bot',
+    text: ["lol... have fun!", "Ready to see your result?"],
+    choices: [
+      { id: 1, text: 'YES, GIVE IT TO ME!', type: 'O', weight: 0, next: 100, followUpText: [] },
+    ]
+  },
 ];
+
 
 
 function addMessage(speaker, text) {
